@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style/style.css">
+
 </head>
 <body>
-    
+    <div class="container">
+
+        <div class ="todolist">
+
+            <div class ="orange-background"> </div>
+
+            <h1>To-Do List</h1>
+            <img src="images/sortSmallBigNotActive.svg" id="sortBigSmallActive" alt="Сортировка">
+
+            <form class="user-form">
+            <label>  
+                <input class="search-box" name="searchbox" type="text" maxlength="36">
+                <img src="images/circleGray.svg" id="circleGray1" alt="фиолетовый-круг">
+            </label>
+
+            <button>
+                <span class = "button-plus">+</span>
+                <span class = "button-text">Добавить</span>
+            </button>
+            </form>
+            
+            <ul class = "task-list">
+
+                <!-- <li> 
+                    <div class ="inside"> 
+                        <p>Почистить зубы</p>
+                        <img src="images/circleGray.svg" id="circleGray" alt="фиолетовый-круг">
+                    </div>
+                </li> -->
+
+            </ul>   
+            
+<!--            
+            <button>
+                <span class = "button-plus">+</span>
+                <span class = "button-text">Добавить</span>
+            </button> -->
+        
+        
+            
+            
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
 </body>
 </html>
