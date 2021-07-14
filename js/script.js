@@ -18,34 +18,16 @@ function addTask(taskName) {
 
   let newElement = document.createElement('li');
   
-  newElement.innerHTML = `<p>${taskName}<p> <img src="images/circleGray.svg" id="circleGray" alt="фиолетовый-круг">`;
-
+  newElement.innerHTML = `<p contenteditable="true">${taskName}</p> <span class="circle plus"></span>`
+  
   document.querySelector("ul").style.display="block";
 
   parentElement.append(newElement);
 
-// Маркировка кружка фиолетовым
-
-document.querySelector('.task-list').addEventListener('mouseover', function (event) {
-   
-  if (event.target.nodeName === 'IMG'){
-    event.target.closest('li').innerHTML = `<p>${taskName}<p> <img src="images/circleFiolet.png" id="circleGray" alt="фиолетовый-круг">`;
-  }
-
-})
-
-document.querySelector('.task-list').addEventListener('mouseout', function (event) {
-   
-  if (event.target.nodeName === 'IMG'){
-    event.target.closest('li').innerHTML = `<p>${taskName}<p> <img src="images/circleGray.png" id="circleGray" alt="фиолетовый-круг">`;
-  }
-
-})
-
-// Удаляем элемент из формы
+// Удаляем li элемент из списка
 document.querySelector('.task-list').addEventListener('click', function (event) {
    
-    if (event.target.nodeName === 'IMG'){
+    if (event.target.nodeName === 'SPAN'){
       event.target.closest('li').remove()
     }
 
@@ -54,11 +36,61 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
     }
     
   })
-
-
-
-
-
-
-
   }
+
+// Очищаем форму
+  document.getElementById('form-button').addEventListener('click', function (event) {
+   
+    event.target.closest('form').reset()
+   
+   })
+
+   Меняем иконку сортировки при наведении!!!!!
+
+   document.querySelector('.sort-image').addEventListener('mouseover', function (event) {
+   
+    if (event.target.nodeName === 'IMG'){
+      document.querySelector('.sort-image').innerHTML = "" ;
+      document.querySelector('.sort-image').innerHTML = '<img src="images/sortSmallBigActive.svg" id="sortSmallBigNotActive" alt="Сортировка">'
+    }
+  
+  })
+
+  // document.querySelector('.sort-image').addEventListener('mouseout', function (event) {
+   
+  //   if (event.target.nodeName === 'IMG'){
+  //     console.log('привет')
+  //     document.querySelector('.sort-image').innerHTML = "" ;
+  //     document.querySelector('.sort-image').innerHTML = '<img src="images/sortSmallBigNotActive.svg" id="sortSmallBigNotActive" alt="Сортировка">'
+  //   }
+  
+  // })
+
+   // Сортируем форму
+
+  let triger = 0;
+  document.getElementById('sortSmallBigNotActive').addEventListener('click', function (event) {
+    if (triger === 0) {
+      sortListAlphabet(".task-list");
+      triger = 1;
+    } else {sortListNonAlphabet (".task-list"); triger = 0;}
+   })
+
+
+   function sortListAlphabet(ul) {
+    var ul = document.querySelector(ul);
+  
+    Array.from(ul.getElementsByTagName("LI"))
+      .sort((a, b) => a.textContent.localeCompare(b.textContent))
+      .forEach(li => ul.appendChild(li));
+  }
+
+  function sortListNonAlphabet(ul) {
+    var ul = document.querySelector(ul);
+  
+    Array.from(ul.getElementsByTagName("LI"))
+      .sort((a, b) => b.textContent.localeCompare(a.textContent))
+      .forEach(li => ul.appendChild(li));
+  }
+  
+    // При наведении делаем активной

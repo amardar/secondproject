@@ -16,18 +16,22 @@
             <div class ="orange-background"> </div>
 
             <h1>To-Do List</h1>
-            <img src="images/sortSmallBigNotActive.svg" id="sortBigSmallActive" alt="Сортировка">
+
+            <div class="sort-image">
+            <img src="images/sortSmallBigNotActive.svg" id="sortSmallBigNotActive" alt="Сортировка">
+            </div>
 
             <form class="user-form">
             <label>  
-                <input class="search-box" name="searchbox" type="text" maxlength="36">
-                <img src="images/circleGray.svg" id="circleGray1" alt="фиолетовый-круг">
+                <input class="search-box" name="searchbox" type="text" maxlength="23" required>
+                <span class="circle plus" id="form-button"></span>
             </label>
 
             <button>
                 <span class = "button-plus">+</span>
                 <span class = "button-text">Добавить</span>
             </button>
+
             </form>
             
             <ul class = "task-list">
