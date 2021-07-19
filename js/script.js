@@ -44,27 +44,48 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
     event.target.closest('form').reset()
    
    })
+// Меняем иконку при наведении
 
-   Меняем иконку сортировки при наведении!!!!!
+// Тут не могу разобраться как эти иконки правильно переключать?????
 
-   document.querySelector('.sort-image').addEventListener('mouseover', function (event) {
-   
-    if (event.target.nodeName === 'IMG'){
-      document.querySelector('.sort-image').innerHTML = "" ;
-      document.querySelector('.sort-image').innerHTML = '<img src="images/sortSmallBigActive.svg" id="sortSmallBigNotActive" alt="Сортировка">'
-    }
+const image = document.querySelector('.sort-image img');
+
+var imageTrigger = 0;
+
+image.addEventListener('click', mouseClick);
+
+if (imageTrigger === 0) {
+  image.addEventListener('mouseover', mouseOver);
+  image.addEventListener('mouseout', mouseOut);
+
+} else {
+  image.addEventListener('mouseover', mouseOver2);
+
+
+}
+
+
+
+function mouseOver(event) {
+  image.src = 'images/sortSmallBigActive.svg';
+}
+
+function mouseOut(event) {
+  image.src = 'images/sortSmallBigNotActive.svg';
   
-  })
+}
 
-  // document.querySelector('.sort-image').addEventListener('mouseout', function (event) {
-   
-  //   if (event.target.nodeName === 'IMG'){
-  //     console.log('привет')
-  //     document.querySelector('.sort-image').innerHTML = "" ;
-  //     document.querySelector('.sort-image').innerHTML = '<img src="images/sortSmallBigNotActive.svg" id="sortSmallBigNotActive" alt="Сортировка">'
-  //   }
-  
-  // })
+function mouseClick(event) {
+  image.src = 'images/SortBigSmallNotActive.svg';
+  imageTrigger = 1;
+}
+
+function mouseOver2(event) {
+  image.src = 'images/sortBigSmallActive.svg';
+  console.log("ghbddd")
+}
+
+
 
    // Сортируем форму
 
@@ -73,7 +94,12 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
     if (triger === 0) {
       sortListAlphabet(".task-list");
       triger = 1;
-    } else {sortListNonAlphabet (".task-list"); triger = 0;}
+
+    } else {
+      sortListNonAlphabet (".task-list"); 
+
+      triger = 0;
+    }
    })
 
 
@@ -83,7 +109,9 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
     Array.from(ul.getElementsByTagName("LI"))
       .sort((a, b) => a.textContent.localeCompare(b.textContent))
       .forEach(li => ul.appendChild(li));
+
   }
+
 
   function sortListNonAlphabet(ul) {
     var ul = document.querySelector(ul);
@@ -94,3 +122,21 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
   }
   
     // При наведении делаем активной
+
+
+  
+
+
+    // const elem = document.querySelector('button');
+
+    //     ['click', 'mouseover'].forEach(eventType => {
+    //         if (eventType === 'click') {
+    //             elem.addEventListener(eventType, () => console.log('Click'));
+    //         } else {
+    //             elem.addEventListener(eventType, () => console.log('mouseover'));
+    //         }
+    //     })
+
+
+        ////////////////////////////////////////
+

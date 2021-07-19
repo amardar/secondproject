@@ -43,7 +43,7 @@ h1 {
 #sortSmallBigNotActive {
     width: 25px;
     height: 15px;
-    position: absolute;
+    position: absolute; /* Убрать position absolute*/
     margin-left: 280px;
 }
 
