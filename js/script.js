@@ -12,8 +12,6 @@ userForm.addEventListener('submit', (event) => {
 
 // Добавляем li элемент в форму
 function addTask(taskName) {
-  console.log(taskName)
-
   let parentElement = document.querySelector('.task-list');
 
   let newElement = document.createElement('li');
@@ -71,13 +69,20 @@ function mouseOver(event) {
 }
 
 function mouseOut(event) {
-  image.src = 'images/sortSmallBigNotActive.svg';
-  
+  // Я бы сделал через css, но в данном случае можно imageTrigger назначить 4 состояния
+  // 1 -  одна иконка
+  // 2 - вторая
+  // 3 - третья и пр
+  // То есть иконка для каждого случая состояния
+  if(!imageTrigger === 1) {
+    image.src = 'images/sortSmallBigNotActive.svg'; 
+  }
 }
 
 function mouseClick(event) {
   image.src = 'images/SortBigSmallNotActive.svg';
   imageTrigger = 1;
+  console.log(imageTrigger);
 }
 
 function mouseOver2(event) {
