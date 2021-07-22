@@ -46,44 +46,40 @@ document.querySelector('.task-list').addEventListener('click', function (event) 
    })
 // Меняем иконку при наведении
 
-// Тут не могу разобраться как эти иконки правильно переключать?????
-
 const image = document.querySelector('.sort-image img');
 
-var imageTrigger = 0;
+let flag = 0;
 
-image.addEventListener('click', mouseClick);
-
-if (imageTrigger === 0) {
   image.addEventListener('mouseover', mouseOver);
   image.addEventListener('mouseout', mouseOut);
-
-} else {
-  image.addEventListener('mouseover', mouseOver2);
-
-
-}
-
-
+  image.addEventListener('click', mouseClick)
+  
 
 function mouseOver(event) {
-  image.src = 'images/sortSmallBigActive.svg';
+  if (flag === 1) {
+    image.src = 'images/sortBigSmallActive.svg'
+  } else {image.src = 'images/sortSmallBigActive.svg'}
+ 
 }
-
 function mouseOut(event) {
-  image.src = 'images/sortSmallBigNotActive.svg';
+  if (flag === 1) {
+    image.src = 'images/sortBigSmallNotActive.svg'
+  } else {image.src = 'images/sortSmallBigNotActive.svg'}
   
 }
-
 function mouseClick(event) {
-  image.src = 'images/SortBigSmallNotActive.svg';
-  imageTrigger = 1;
+  if (flag === 0) {
+    image.src = 'images/sortBigSmallActive.svg';
+    flag = 1;
+  } else {image.src = 'images/sortSmallBigActive.svg'
+  flag = 0;
+
 }
 
-function mouseOver2(event) {
-  image.src = 'images/sortBigSmallActive.svg';
-  console.log("ghbddd")
 }
+
+
+
 
 
 
@@ -94,7 +90,7 @@ function mouseOver2(event) {
     if (triger === 0) {
       sortListAlphabet(".task-list");
       triger = 1;
-
+      
     } else {
       sortListNonAlphabet (".task-list"); 
 
@@ -110,6 +106,7 @@ function mouseOver2(event) {
       .sort((a, b) => a.textContent.localeCompare(b.textContent))
       .forEach(li => ul.appendChild(li));
 
+   
   }
 
 
@@ -119,24 +116,9 @@ function mouseOver2(event) {
     Array.from(ul.getElementsByTagName("LI"))
       .sort((a, b) => b.textContent.localeCompare(a.textContent))
       .forEach(li => ul.appendChild(li));
+
+      
   }
   
-    // При наведении делаем активной
-
-
-  
-
-
-    // const elem = document.querySelector('button');
-
-    //     ['click', 'mouseover'].forEach(eventType => {
-    //         if (eventType === 'click') {
-    //             elem.addEventListener(eventType, () => console.log('Click'));
-    //         } else {
-    //             elem.addEventListener(eventType, () => console.log('mouseover'));
-    //         }
-    //     })
-
-
-        ////////////////////////////////////////
+ 
 
