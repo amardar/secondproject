@@ -6,6 +6,7 @@ body {
 
 .container {
     width: 100%;
+    margin-top: 14%;
 }
 
 .todolist {
@@ -15,7 +16,6 @@ body {
     border-color: #C4C4C4;
     border-radius: 10px;
     margin: auto;
-    margin-top:20px;
     width: 336px;        
 }
 

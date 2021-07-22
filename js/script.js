@@ -12,7 +12,6 @@ userForm.addEventListener('submit', (event) => {
 
 // Добавляем li элемент в форму
 function addTask(taskName) {
-  console.log(taskName)
 
   let parentElement = document.querySelector('.task-list');
 
@@ -23,6 +22,10 @@ function addTask(taskName) {
   document.querySelector("ul").style.display="block";
 
   parentElement.append(newElement);
+
+  document.querySelector(".user-form").reset()
+  
+
 
 // Удаляем li элемент из списка
 document.querySelector('.task-list').addEventListener('click', function (event) {
@@ -72,16 +75,11 @@ function mouseClick(event) {
     image.src = 'images/sortBigSmallActive.svg';
     flag = 1;
   } else {image.src = 'images/sortSmallBigActive.svg'
-  flag = 0;
+    flag = 0;
 
 }
 
 }
-
-
-
-
-
 
    // Сортируем форму
 
@@ -93,7 +91,6 @@ function mouseClick(event) {
       
     } else {
       sortListNonAlphabet (".task-list"); 
-
       triger = 0;
     }
    })
@@ -105,8 +102,6 @@ function mouseClick(event) {
     Array.from(ul.getElementsByTagName("LI"))
       .sort((a, b) => a.textContent.localeCompare(b.textContent))
       .forEach(li => ul.appendChild(li));
-
-   
   }
 
 
@@ -116,8 +111,6 @@ function mouseClick(event) {
     Array.from(ul.getElementsByTagName("LI"))
       .sort((a, b) => b.textContent.localeCompare(a.textContent))
       .forEach(li => ul.appendChild(li));
-
-      
   }
   
  
