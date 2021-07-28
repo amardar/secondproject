@@ -6,7 +6,10 @@ body {
 
 .container {
     width: 100%;
-    margin-top: 14%;
+    height: 90vh;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
 }
 
 .todolist {
@@ -43,7 +46,7 @@ h1 {
 #sortSmallBigNotActive {
     width: 25px;
     height: 15px;
-    position: absolute; /* Убрать position absolute*/
+    position: absolute; 
     margin-left: 280px;
 }
 
